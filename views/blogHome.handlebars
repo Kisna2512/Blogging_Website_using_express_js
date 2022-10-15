@@ -1,0 +1,12 @@
+{{#each blogs}}
+<div class="container text-center my-3">
+    <div class="card centered">
+        {{!-- <img url="DSC_7993.jpg" class="img-fluid" alt="" /> --}}
+        <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.slug}}</p>
+            <a href="https://github.com/Kisna2512?tab=repositories" class="btn btn-primary">Go to blog Page</a>
+        </div>
+    </div>
+</div>
+{{/each}}

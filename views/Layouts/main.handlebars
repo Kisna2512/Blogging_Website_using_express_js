@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <link rel="shortcut icon" href="D:\MY DATA\Development\Express Js\BlogExpress\fav.jpg" type="image/x-icon">
+    <title>Coding Thunder</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400');
+/* RESET STYLE */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0 auto;
+    min-height: 100%;
+    font-family: 'Titillium Web', Tahoma, sans-serif, monospace;
+    
+}
+
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+/* MOBILE DISPLAY */
+nav {
+    z-index: 9999;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.container0 {
+    display: inline-block;
+    height: 60px;
+    width: 100%;
+    background: #ECECEC;
+}
+
+.inav {
+    padding: 12px;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    float: right;
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #d7b94c;
+    border-radius: 25px;
+}
+
+.c1,
+.c2,
+.c3 {
+    width: 26px;
+    height: 2px;
+    background: #d7b94c;
+    border-radius: 2px;
+    transition: transform .3s ease-out, width .3s ease-in;
+    transform: translateY(0) rotate(0);
+    -webkit-transform: translateY(0) rotate(0);
+    -webkit-transition: -webkit-transform .3s ease-out, width .3s ease-in;
+}
+
+.close-c1 {
+    transform: translateY(10px) rotate(45deg);
+    transition: transform .3s ease-out;
+    -webkit-transform: translateY(10px) rotate(45deg);
+    -webkit-transition: -webkit-transform .3s ease-out;
+}
+
+.close-c2 {
+    width: 0;
+    transition: width .3s ease-in;
+    -webkit-transition: width .3s ease-in;
+}
+
+.close-c3 {
+    transform: translateY(-10px) rotate(-45deg);
+    transition: transform .3s ease-out;
+    -webkit-transform: translateY(-10px) rotate(-45deg);
+    -webkit-transition: -webkit-transform .3s ease-out;
+}
+
+.nav {
+    z-index: 2;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #ECECEC;
+    display: none;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .1);
+    position: relative;
+    top: -4px;
+}
+
+.open {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    opacity: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-animation: 300ms show ease-out forwards;
+    animation: 300ms show ease-out forwards;
+}
+ul a {
+    text-align: center;
+    display: inline-block;
+    color: #aaa;
+    padding: 13px;
+    font-size: 18px;
+    border-top: 1px #BDC3C7 solid;
+    text-decoration:none;
+}
+ul a:hover {
+    background-color: #DADFE1;
+    color: #607D8B;
+}
+/* DESKTOP MODE */
+@media (min-width: 500px) {
+#nav {
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        /* NEW - Chrome */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        -webkit-flex-direction: row;
+        top: 0;
+    }
+    .open {
+        flex-direction: row;
+        -webkit-flex-direction: row;
+    }
+    ul a {
+        border-top: 0;
+    }
+    .container0 {
+        display: none;
+    }
+}
+
+/* ANIMATION */
+@-webkit-keyframes show {
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes show {
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+h1{
+  font-weight:100;
+  text-align:center;
+  margin-top:20px;
+}
+    </style>
+</head>
+
+<body>
+    {{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Coding Thunder</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav> --}}
+
+
+      
+    <nav>
+        <div class="container0">
+            <div id="i" class="inav">
+                <div class="c1"></div>
+                <div class="c2"></div>
+                <div class="c3"></div>
+            </div>
+        </div>
+    
+        <ul id="nav" class="nav">
+            <a href="/">HOME</a>
+            <a href="/blog">Blog</a>
+            <a href="https://github.com/Kisna2512">ABOUT</a>
+            <a href="https://www.linkedin.com/in/krishna-kotgire-4465ab205/">CONTACT</a>
+        </ul>
+    </nav>
+ 
+
+    {{{body}}}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script src="navbar.js"></script>
+</body>
+
+</html>
